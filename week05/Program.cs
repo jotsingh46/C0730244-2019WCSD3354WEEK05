@@ -6,7 +6,8 @@ namespace week05
     {
         static void Main(string[] args)
         {
-            
+            var a = new TestQuestion2();
+            a.PlayingWithForLoops();
         }
     }
 
