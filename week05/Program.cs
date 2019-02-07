@@ -7,8 +7,12 @@ namespace week05
         static void Main(string[] args)
         {
             var a = new TestQuestion2();
-            a.PlayingWithForLoops();
+            //a.PlayingWithForLoops();
             Console.ReadLine();
+
+            var b = new birthdayParty();
+            b.setupPartyList();
+            b.printPartyList();
         }
     }
 
@@ -64,6 +68,7 @@ namespace week05
         public dog head;
         public dog tail;
         public dog temp;
+
         public void setupPartyList()
         {
             peanut = new dog("peanut", "bichon");
@@ -83,6 +88,16 @@ namespace week05
             head = peanut;
             tail = roy;
         }
-        //public dog current;
+        
+        public string printPartyList(dog startOfList, dog endOfList)
+        {
+            string inviteList = "---";
+            temp = startOfList;
+            while(temp.nextdog != null)
+            {
+                inviteList += temp.dog_name + "*---";
+            }
+            return inviteList;
+        }
     }
 }
