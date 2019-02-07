@@ -8,6 +8,7 @@ namespace week05
         {
             var a = new TestQuestion2();
             a.PlayingWithForLoops();
+            Console.ReadLine();
         }
     }
 
@@ -39,4 +40,28 @@ namespace week05
         }
     }
 
+    class dog
+    {
+        public dog(string name, string breed)
+        {
+            dog_name = name;
+            dog_breed = breed;
+        }
+
+        public string dog_name;
+        public string dog_breed;
+        public dog nextdog;
+        public dog previousdog;
+    }
+    class birthdayParty
+    {
+        public dog kalu;
+        public dog sheru;
+        public dog fifi;
+
+        public dog head;
+        public dog tail;
+        public dog temp;
+        //public dog current;
+    }
 }
