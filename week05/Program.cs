@@ -8,11 +8,13 @@ namespace week05
         {
             var a = new TestQuestion2();
             //a.PlayingWithForLoops();
-            Console.ReadLine();
+            
 
             var b = new birthdayParty();
             b.setupPartyList();
-            b.printPartyList();
+            Console.WriteLine(b.printPartyList());
+            Console.WriteLine(b.printPartyList_reverse());
+            Console.ReadLine();
         }
     }
 
@@ -64,6 +66,8 @@ namespace week05
         public dog fifi;
         public dog clarence;
         public dog roy;
+        public dog Giselle;
+        public dog Lulu;
 
         public dog head;
         public dog tail;
@@ -75,28 +79,52 @@ namespace week05
             fifi = new dog("fifi", "poodle");
             clarence = new dog("Clarence", "German Sheppard");
             roy = new dog("roy", "beagle");
+            Giselle = new dog("Giselle", "Border Collie");
+            Lulu = new dog("Lulu", "Shitzu");
+
 
             peanut.previousdog = null;
             peanut.nextdog = fifi;
             fifi.previousdog = peanut;
             fifi.nextdog = clarence;
             clarence.previousdog = fifi;
-            clarence.nextdog = roy;
-            roy.previousdog = clarence;
+            clarence.nextdog = Giselle;
+            Giselle.previousdog = clarence;
+            Giselle.nextdog = Lulu;
+            Lulu.previousdog = Giselle;
+            Lulu.nextdog = roy;
+            roy.previousdog = Lulu;
             roy.nextdog = null;
 
             head = peanut;
             tail = roy;
         }
         
-        public string printPartyList(dog startOfList, dog endOfList)
+        public string printPartyList()
         {
             string inviteList = "---";
-            temp = startOfList;
+            temp = head;
             while(temp.nextdog != null)
-            {
+            {               
                 inviteList += temp.dog_name + "*---";
+                temp = temp.nextdog;
+
             }
+            inviteList += temp.dog_name + "*---";
+            return inviteList;
+        }
+
+        public string printPartyList_reverse()
+        {
+            string inviteList = "---";
+            temp = tail;
+            while (temp.previousdog != null)
+            {             
+                inviteList += temp.dog_name + "*---";
+                temp = temp.previousdog;
+
+            }
+            inviteList += temp.dog_name + "*---";
             return inviteList;
         }
     }
